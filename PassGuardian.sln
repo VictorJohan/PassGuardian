@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PassGuardian", "PassGuardian\PassGuardian.csproj", "{A44B1B4D-1615-4D0C-9EAC-E46731568A57}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A44B1B4D-1615-4D0C-9EAC-E46731568A57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A44B1B4D-1615-4D0C-9EAC-E46731568A57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A44B1B4D-1615-4D0C-9EAC-E46731568A57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A44B1B4D-1615-4D0C-9EAC-E46731568A57}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {14FB3B52-61EF-4A03-A8A7-B9A40D87C266}
+	EndGlobalSection
+EndGlobal
