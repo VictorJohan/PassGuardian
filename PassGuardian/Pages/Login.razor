@@ -1,0 +1,78 @@
+﻿@page "/"
+@inject NavigationManager Nav
+@layout LoginLayout;
+@inject User User;
+@inject IToastService toast;
+ <Alert TypeMessage="@typeMessage" Message="@message" />
+<div class="sidenav-login">
+         <div class="login-main-text">
+            <h2>Application<br> Login Page</h2>
+            <p>Login or register from here to access.</p>
+         </div>
+      </div>
+      <div class="main-login">
+         <div class="col-md-6 col-sm-12">
+            <div class="login-form">
+               <form>
+                  
+                  <div class="form-group">
+                     <label>User Name</label>
+                     <input type="text" class="form-control" @bind="user.UserName" placeholder="User Name">
+                  </div>
+                  <div class="form-group">
+                     <label>Password</label>
+                     <input type="password" class="form-control" @bind="user.Password" placeholder="Password">
+                  </div>
+                  <button type="button" @onclick="SignIn" class="btn btn-primary">Login</button>
+                  <button type="button" class="btn btn-secondary" @onclick="(() => {showRegister = true;})">Register</button>
+               </form>
+            </div>
+         </div>
+      </div>
+
+      @if (showRegister)
+{
+    <RUser OnClose="Close"/>
+}
+
+@code {
+
+    UserBLL userBLL;
+    User user;
+    string message;
+    int typeMessage;
+    bool showRegister = false;
+    protected override void OnInitialized()
+    {
+      
+        userBLL = new UserBLL();
+        user = new();
+    }
+
+    private async Task SignIn(){
+        user = await userBLL.Login(user);
+        if(user.UserID != 0)
+        {
+            User.UserID = user.UserID;
+            User.UserName = user.UserName;
+            user = new();
+            Nav.NavigateTo("/home");
+        }
+        else
+        {
+            foreach(var response in userBLL.Response.Responses)
+            {
+                toast.ShowError(response.Value, response.Key);
+            }
+        }
+    }
+
+
+
+    private async Task Close(bool refrescar)
+    {
+
+        showRegister = false;
+        
+    }
+}

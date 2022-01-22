@@ -1,7 +1,7 @@
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
 html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: "Lato", sans-serif;
 }
 
 a, .btn-link {
@@ -48,3 +48,233 @@ a, .btn-link {
         right: 0.75rem;
         top: 0.5rem;
     }
+
+/*============================My css=========================================*/
+.vertical-center {
+    margin-top: 15px;
+    margin-left: 3px;
+}
+
+.modalHeight{
+    height:75%;
+}
+.containerAlert {
+    width: 100%;
+    display: flex;
+    padding-left:2px;
+    border-radius:5px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color:green !important;
+}
+
+.color-succes {
+    background-color: green;
+    color: white;
+}
+.color-error {
+    background-color: red;
+    color: white;
+}
+.color-warning {
+    background-color: orange;
+    color: white;
+}
+.color-info {
+    background-color: dodgerblue;
+    color: white;
+}
+.borders {
+    margin-bottom: 4px;
+}
+
+.sidebarShadow {
+    box-shadow: 10px 0 5px -8px gray;
+}
+
+.close:hover {
+    background-color: #f11212 !important;
+}
+
+.borders:hover {
+    background-color: #0366d6 !important;
+    color: white !important;
+    text-decoration: none;
+}
+
+.main-head-login {
+    height: 150px;
+    background: #FFF;
+}
+
+.sidenav-login {
+    height: 100%;
+    background-color: #0c19c4;
+    overflow-x: hidden;
+    padding-top: 20px;
+    
+}
+
+
+.main-login {
+    padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav-login {
+        padding-top: 15px;
+       
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .login-form {
+        margin-top: 10%;
+    }
+    .modalHeight {
+        height: 900px;
+    }
+    .register-form {
+        margin-top: 10%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .main-login {
+        margin-left: 40%;
+    }
+
+    
+    .sidenav-login {
+        width: 40%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+       
+    }
+
+    .login-form {
+        margin-top: 80%;
+    }
+
+    .register-form {
+        margin-top: 20%;
+    }
+}
+
+
+.login-main-text {
+    margin-top: 20%;
+    padding: 60px;
+    color: #fff;
+}
+
+    .login-main-text h2 {
+        font-weight: 300;
+    }
+
+.btn-black {
+    background-color: #000 !important;
+    color: #fff;
+}
+
+.top-bar {
+    width: 100%;
+    display: inline-flex;
+    color: white;
+    margin-bottom: 2%;
+    box-shadow: 0px 10px 10px -10px black !important
+}
+
+/*Theme*/
+.w3-theme-l5 {
+    color: #000 !important;
+    background-color: #f1f2fe !important
+}
+
+.w3-theme-l4 {
+    color: #000 !important;
+    background-color: #d0d3fc !important
+}
+
+.w3-theme-l3 {
+    color: #000 !important;
+    background-color: #a1a7f9 !important
+}
+
+.w3-theme-l2 {
+    color: #fff !important;
+    background-color: #727bf6 !important
+}
+
+.w3-theme-l1 {
+    color: #fff !important;
+    background-color: #434ff3 !important
+}
+
+.w3-theme-d1 {
+    color: #fff !important;
+    background-color: #0e1cdc !important
+}
+
+.w3-theme-d2 {
+    color: #fff !important;
+    background-color: #0c19c4 !important
+}
+
+.w3-theme-d3 {
+    color: #fff !important;
+    background-color: #0b16ab !important
+}
+
+.w3-theme-d4 {
+    color: #fff !important;
+    background-color: #091393 !important
+}
+
+.w3-theme-d5 {
+    color: #fff !important;
+    background-color: #080f7a !important
+}
+
+.w3-theme-light {
+    color: #000 !important;
+    background-color: #f1f2fe !important
+}
+
+.w3-theme-dark {
+    color: #fff !important;
+    background-color: #080f7a !important
+}
+
+.w3-theme-action {
+    color: #fff !important;
+    background-color: #080f7a !important
+}
+
+.w3-theme {
+    color: #fff !important;
+    background-color: #1525f0 !important
+}
+
+.w3-text-theme {
+    color: #1525f0 !important
+}
+
+.w3-border-theme {
+    border-color: #1525f0 !important
+}
+
+.w3-hover-theme:hover {
+    color: #fff !important;
+    background-color: #1525f0 !important
+}
+
+.w3-hover-text-theme:hover {
+    color: #1525f0 !important
+}
+
+.w3-hover-border-theme:hover {
+    border-color: #1525f0 !important
+}

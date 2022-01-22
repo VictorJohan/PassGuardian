@@ -1,0 +1,24 @@
+﻿@switch (TypeMessage)
+{
+    case 0:
+    <div class="containerAlert w3-animate-left color-succes">@Message</div>
+        break;
+        case 1:
+    <div class="containerAlert w3-animate-left color-error">@Message</div>
+        break;
+         case 3:
+    <div class="containerAlert w3-animate-left color-warning">@Message</div>
+        break;
+        case 4:
+    <div class="containerAlert w3-animate-left color-info">@Message</div>
+        break;
+       
+}
+
+
+@code {
+    [Parameter]
+    public string Message { get; set; }
+   [Parameter]
+   public int TypeMessage { get; set; }
+}

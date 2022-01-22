@@ -1,4 +1,5 @@
-﻿using PassGuardian.Models;
+﻿using Newtonsoft.Json;
+using PassGuardian.Models;
 using PassGuardian.Utils;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -10,10 +11,10 @@ namespace PassGuardian.BLL
     public class PasswordBLL
     {
         private HttpClient Http { get; set; }
-       
-        public PasswordBLL(HttpClient _http)
+        public Response Response { get; set; }
+        public PasswordBLL()
         {
-            Http = _http;
+            Http = Host.GetClient();
             
         }
 
@@ -30,9 +31,16 @@ namespace PassGuardian.BLL
         {
             var result = await Http.PostAsJsonAsync($"{Host.PassGuardianHost}password/delete", password);
 
-            if(result.IsSuccessStatusCode)
+            if (result.IsSuccessStatusCode)
+            {
                 return true;
-            return false;
+            }
+            else
+            {
+                Response = JsonConvert.DeserializeObject<Response>(await result.Content.ReadAsStringAsync());
+                return false;
+            }
+           
         }
 
         public async Task<string> GetPasswordFromServer(int user)
@@ -48,8 +56,12 @@ namespace PassGuardian.BLL
         public async Task<List<Password>> GetPasswordsByUser(int user)
         {
             List<Password> passwords = new();
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            HttpClient http = new(clientHandler);
+           
 
-            passwords = await Http.GetFromJsonAsync<List<Password>>($"{Host.PassGuardianHost}password/listbyuser?id={user}");
+            passwords = await http.GetFromJsonAsync<List<Password>>($"{Host.PassGuardianHost}password/listbyuser?id={user}");
             if (passwords != null)
                 return passwords;
 

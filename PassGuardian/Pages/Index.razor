@@ -1,14 +1,18 @@
-﻿@page "/"
+﻿@page "/home"
+@inject IToastService toast
 @inject User user;
-<h1>Hello, world!</h1>
+@inject Notification notification
 
-Welcome to your new app.
 
-<SurveyPrompt Title="How is Blazor working for you?" />
 
-@code{
+
+@code {
     protected override async Task OnInitializedAsync()
     {
-        user.UserID = 9;
+        if(notification.Welcome != true)
+        {
+            toast.ShowInfo("PassGuardian",$"Welcome {user.UserName}");
+            notification.Welcome = true;
+        }
     }
 }

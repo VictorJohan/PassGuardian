@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PassGuardian.Models;
 using PassGuardian.Provaiders;
+using PassGuardian.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,8 +42,9 @@ namespace PassGuardian
             services.AddScoped<AuthenticationStateProvider, CustomAuthentication>();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
             services.AddScoped<User>();
-            services.AddScoped<HttpClient>();
+            services.AddScoped<Notification>();
             services.AddBlazoredToast();
+            services.AddServerSideBlazor().AddCircuitOptions(options => { options.DetailedErrors = true; });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
